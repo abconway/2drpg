@@ -8,24 +8,35 @@ class_name Player
 const SPEED := 100
 
 var previous_direction: Vector2
+var is_attacking = false
 
 
 func _physics_process(delta: float) -> void:
-	var direction := Vector2(
-		Input.get_axis("player_move_left", "player_move_right"),
-		Input.get_axis("player_move_up", "player_move_down"),
-	)
-	if direction == Vector2.ZERO:
-		playback.travel("idle")
-		set_blend_pos(previous_direction)
-	else:
-		playback.travel("walk")
-		previous_direction = direction
-		set_blend_pos(direction)
-	velocity = direction * SPEED
-	move_and_slide()
+	if not is_attacking and Input.is_action_just_pressed("player_attack"):
+		is_attacking = true
+		playback.travel("attack")
+	elif not is_attacking:
+		var direction := Vector2(
+			Input.get_axis("player_move_left", "player_move_right"),
+			Input.get_axis("player_move_up", "player_move_down"),
+		)
+		if direction == Vector2.ZERO:
+			playback.travel("idle")
+			set_blend_pos(previous_direction)
+		else:
+			playback.travel("walk")
+			previous_direction = direction
+			set_blend_pos(direction)
+		velocity = direction * SPEED
+		move_and_slide()
 
 
 func set_blend_pos(p: Vector2) -> void:
 	animation_tree.set("parameters/idle/blend_position", p)
 	animation_tree.set("parameters/walk/blend_position", p)
+	animation_tree.set("parameters/attack/blend_position", p)
+
+
+func attack_complete() -> void:
+	is_attacking = false
+	playback.travel("idle")

@@ -1548,3 +1548,10 @@ layer_0/tile_data = PackedInt32Array(1245176, 0, 5, 1310712, 0, 6, 1376248, 0, 7
 position = Vector2(144, 112)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_speed = 16.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
