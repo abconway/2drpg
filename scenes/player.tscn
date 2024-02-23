@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bd1vu5ngtoc5b"]
+[gd_scene load_steps=41 format=3 uid="uid://bd1vu5ngtoc5b"]
 
 [ext_resource type="Texture2D" uid="uid://c8bdv6wyg26vn" path="res://assets/characters/player.png" id="1_eo8y2"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_wl6eu"]
@@ -61,6 +61,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Sword/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_xkonk"]
@@ -306,6 +330,30 @@ tracks/2/keys = {
 "method": &"attack_complete"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker2D/Sword/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_xojtc"]
 resource_name = "attack_right"
@@ -347,6 +395,30 @@ tracks/2/keys = {
 "args": [],
 "method": &"attack_complete"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker2D/Sword/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_o1eyn"]
@@ -390,6 +462,30 @@ tracks/2/keys = {
 "method": &"attack_complete"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker2D/Sword/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_o5yjk"]
 resource_name = "attack_up"
@@ -431,6 +527,30 @@ tracks/2/keys = {
 "args": [],
 "method": &"attack_complete"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker2D/Sword/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sbk61"]
@@ -554,6 +674,10 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_cramt")
 states/walk/position = Vector2(669.5, 100.375)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_55s1b"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_puabl"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_pt6w4"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7chpl"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_nj5m4"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_vhvgq")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1lxlq"]
+radius = 8.0
+height = 20.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wl6eu")
 
@@ -583,3 +707,15 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/attack/blend_position = Vector2(0, 0)
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -5)
+
+[node name="Sword" type="Area2D" parent="Marker2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Sword"]
+position = Vector2(1.42109e-14, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1lxlq")
+
+[connection signal="body_entered" from="Marker2D/Sword" to="." method="_on_sword_body_entered"]

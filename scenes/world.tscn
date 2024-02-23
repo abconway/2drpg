@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjtplqsb8fwp8"]
+[gd_scene load_steps=14 format=3 uid="uid://cjtplqsb8fwp8"]
 
 [ext_resource type="Texture2D" uid="uid://d38qsbsfxhpm3" path="res://assets/tilesets/plains.png" id="1_di73n"]
 [ext_resource type="Texture2D" uid="uid://c18h4qr572tb0" path="res://assets/tilesets/grass.png" id="2_2t76b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctsmdh7by7qfp" path="res://assets/tilesets/walls/walls.png" id="4_ra7je"]
 [ext_resource type="Texture2D" uid="uid://ppx8jifslx55" path="res://assets/objects/objects.png" id="5_8lgh2"]
 [ext_resource type="PackedScene" uid="uid://bd1vu5ngtoc5b" path="res://scenes/player.tscn" id="5_sfj87"]
+[ext_resource type="PackedScene" uid="uid://80kjpi14t1b4" path="res://scenes/slime.tscn" id="7_w3n33"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfysu"]
 texture = ExtResource("1_di73n")
@@ -1555,3 +1556,6 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="Slime" parent="." instance=ExtResource("7_w3n33")]
+position = Vector2(144, 144)
