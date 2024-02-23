@@ -7,14 +7,20 @@ class_name Player
 
 const SPEED := 100
 
+var previous_direction: Vector2
+
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2(
 		Input.get_axis("player_move_left", "player_move_right"),
 		Input.get_axis("player_move_up", "player_move_down"),
 	)
+	if direction == Vector2.ZERO:
+		set_blend_pos(previous_direction)
+	else:
+		previous_direction = direction
+		set_blend_pos(direction)
 	velocity = direction * SPEED
-	set_blend_pos(direction)
 	move_and_slide()
 
 

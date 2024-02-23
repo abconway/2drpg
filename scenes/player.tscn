@@ -30,10 +30,10 @@ tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false, false, false, false, false]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_k2r4u"]
@@ -86,10 +86,10 @@ tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false, false, false, false, false, false]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_a1prw"]
@@ -115,10 +115,10 @@ tracks/1/path = NodePath("Sprite2D:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false, false, false, false, false, false]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_tnb5u"]
@@ -132,10 +132,10 @@ tracks/0/path = NodePath("Sprite2D:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, true, true, true, true, true, true]
+"values": [true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -182,7 +182,7 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_tns02")
 blend_point_3/pos = Vector2(2.08167e-14, 1.1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
-snap = Vector2(0.01, 0.01)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_55s1b"]
 advance_mode = 2
