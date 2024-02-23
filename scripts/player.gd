@@ -16,8 +16,10 @@ func _physics_process(delta: float) -> void:
 		Input.get_axis("player_move_up", "player_move_down"),
 	)
 	if direction == Vector2.ZERO:
+		playback.travel("idle")
 		set_blend_pos(previous_direction)
 	else:
+		playback.travel("walk")
 		previous_direction = direction
 		set_blend_pos(direction)
 	velocity = direction * SPEED
@@ -26,3 +28,4 @@ func _physics_process(delta: float) -> void:
 
 func set_blend_pos(p: Vector2) -> void:
 	animation_tree.set("parameters/idle/blend_position", p)
+	animation_tree.set("parameters/walk/blend_position", p)
