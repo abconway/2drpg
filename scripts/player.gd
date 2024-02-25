@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		var direction := Vector2(
 			Input.get_axis("player_move_left", "player_move_right"),
 			Input.get_axis("player_move_up", "player_move_down"),
-		)
+		).normalized()
 		if direction == Vector2.ZERO:
 			playback.travel("idle")
 			set_blend_pos(previous_direction)
