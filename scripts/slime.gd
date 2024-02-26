@@ -29,8 +29,6 @@ func _physics_process(delta: float) -> void:
 	elif current_state == State.JUMP:
 		current_state = State.JUMPING
 		jump()
-	elif current_state == State.JUMPING:
-		pass
 
 
 func set_blend_pos(p: Vector2) -> void:

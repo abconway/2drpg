@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_j22ma"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_74cn6"]
-radius = 4.0
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_n65ah"]
 length = 0.001
@@ -479,16 +479,16 @@ radius = 75.0
 [node name="Slime" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_j22ma")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-rotation = 1.5708
-shape = SubResource("CircleShape2D_74cn6")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hpwfp")
 hframes = 7
 vframes = 5
 frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_74cn6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -508,6 +508,7 @@ parameters/idle_bounce/blend_position = 0
 parameters/jump/blend_position = 0
 
 [node name="DamageDetector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
 position = Vector2(0, 2)
@@ -515,6 +516,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ls18h")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_qvq6o")
