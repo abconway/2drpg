@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ppx8jifslx55" path="res://assets/objects/objects.png" id="5_8lgh2"]
 [ext_resource type="PackedScene" uid="uid://bd1vu5ngtoc5b" path="res://scenes/player.tscn" id="5_sfj87"]
 [ext_resource type="PackedScene" uid="uid://80kjpi14t1b4" path="res://scenes/slime.tscn" id="7_w3n33"]
-[ext_resource type="Script" path="res://scenes/HBoxContainer.gd" id="8_bsndt"]
+[ext_resource type="Script" path="res://scripts/HBoxContainer.gd" id="8_bsndt"]
 [ext_resource type="Texture2D" uid="uid://8hja16rte3ft" path="res://assets/objects/Heart.png" id="8_phlhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfysu"]
