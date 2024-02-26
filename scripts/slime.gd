@@ -8,7 +8,7 @@ class_name Slime
 
 const SPEED := 50
 var health := 1
-enum State {IDLE, IDLE_BOUNCE, JUMP, HIT, DEATH}
+enum State {IDLE, IDLE_BOUNCE, JUMP, JUMPING, HIT, DEATH}
 var current_state = State.IDLE
 var target_body
 
@@ -18,14 +18,19 @@ func _physics_process(delta: float) -> void:
 		current_state = State.DEATH
 	if current_state == State.IDLE:
 		playback.travel("idle")
-	if current_state == State.DEATH:
+	elif current_state == State.DEATH:
 		playback.travel("death")
-	if current_state == State.IDLE_BOUNCE:
+	elif current_state == State.IDLE_BOUNCE:
 		playback.travel("idle_bounce")
+		if not target_body:
+			current_state = State.IDLE
 		if bounce_timer.is_stopped():
 			bounce_timer.start()
-	if current_state == State.JUMP:
+	elif current_state == State.JUMP:
+		current_state = State.JUMPING
 		jump()
+	elif current_state == State.JUMPING:
+		pass
 
 
 func set_blend_pos(p: Vector2) -> void:
@@ -37,32 +42,40 @@ func set_blend_pos(p: Vector2) -> void:
 
 
 func jump() -> void:
-	print("jump")
+	if not target_body:
+		return
 	var target_vector: Vector2 = target_body.position - position
 	if target_vector.length() > SPEED:
 		target_vector = target_vector.normalized() * SPEED
-	position = position + target_vector 
-	current_state = State.IDLE
+	#position = position + target_vector
+	playback.travel("jump")
+	var tween = get_tree().create_tween()
+	tween.tween_property($".", "position", position + target_vector, 0.7)
+	tween.set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN_OUT)
+	tween.finished.connect(jumping_finished)
+
+
+func jumping_finished():
+	current_state = State.IDLE_BOUNCE
+	return true
 
 
 func _on_damage_detector_body_entered(body):
-	print(body.name)
 	if "Player" in body.name:
 		print("Player hurt!")
 		body.health -= 1
 
 
 func _on_player_detector_body_entered(body):
-	print(body.name)
 	if "Player" in body.name:
 		current_state = State.IDLE_BOUNCE
 		target_body = body
 
 
 func _on_player_detector_body_exited(body):
-	print(body.name)
 	if "Player" in body.name:
 		current_state = State.IDLE
+		target_body = null
 
 
 func _on_bounce_timer_timeout():

@@ -1559,3 +1559,9 @@ drag_bottom_margin = 0.1
 
 [node name="Slime" parent="." instance=ExtResource("7_w3n33")]
 position = Vector2(144, 144)
+
+[node name="Slime2" parent="." instance=ExtResource("7_w3n33")]
+position = Vector2(206, 144)
+
+[node name="Slime3" parent="." instance=ExtResource("7_w3n33")]
+position = Vector2(206, 73)
