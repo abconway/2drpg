@@ -13,7 +13,6 @@ var speed := 100
 var previous_direction: Vector2
 var is_attacking = false
 var is_dashing = false
-var health = 3
 
 
 func _ready() -> void:
@@ -22,7 +21,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if health <= 0:
+	if Global.player_health <= 0:
 		queue_free()
 	if not is_attacking and Input.is_action_just_pressed("player_attack"):
 		is_attacking = true
@@ -68,4 +67,5 @@ func dash_complete() -> void:
 
 func _on_sword_body_entered(body):
 	if body.is_in_group("Enemies"):
-		body.health -= 1 # Replace with function body.
+		body.health -= 1
+		body.current_state = body.State.HIT

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjtplqsb8fwp8"]
+[gd_scene load_steps=15 format=3 uid="uid://cjtplqsb8fwp8"]
 
 [ext_resource type="Texture2D" uid="uid://d38qsbsfxhpm3" path="res://assets/tilesets/plains.png" id="1_di73n"]
 [ext_resource type="Texture2D" uid="uid://c18h4qr572tb0" path="res://assets/tilesets/grass.png" id="2_2t76b"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ppx8jifslx55" path="res://assets/objects/objects.png" id="5_8lgh2"]
 [ext_resource type="PackedScene" uid="uid://bd1vu5ngtoc5b" path="res://scenes/player.tscn" id="5_sfj87"]
 [ext_resource type="PackedScene" uid="uid://80kjpi14t1b4" path="res://scenes/slime.tscn" id="7_w3n33"]
+[ext_resource type="Script" path="res://scenes/HBoxContainer.gd" id="8_bsndt"]
+[ext_resource type="Texture2D" uid="uid://8hja16rte3ft" path="res://assets/objects/Heart.png" id="8_phlhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfysu"]
 texture = ExtResource("1_di73n")
@@ -949,3 +951,49 @@ offset_right = 768.0
 offset_bottom = 512.0
 texture = ExtResource("2_2t76b")
 stretch_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.5
+offset_right = 23.5
+offset_bottom = 13.0
+grow_horizontal = 2
+script = ExtResource("8_bsndt")
+
+[node name="Heart1" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Heart1"]
+layout_mode = 2
+texture = ExtResource("8_phlhn")
+
+[node name="Heart2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Heart2"]
+layout_mode = 2
+texture = ExtResource("8_phlhn")
+
+[node name="Heart3" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Heart3"]
+layout_mode = 2
+texture = ExtResource("8_phlhn")
