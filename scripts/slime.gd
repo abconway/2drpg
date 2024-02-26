@@ -61,19 +61,19 @@ func jumping_finished():
 
 
 func _on_damage_detector_body_entered(body):
-	if "Player" in body.name:
+	if body.is_in_group("Player"):
 		print("Player hurt!")
 		body.health -= 1
 
 
 func _on_player_detector_body_entered(body):
-	if "Player" in body.name:
+	if body.is_in_group("Player"):
 		current_state = State.IDLE_BOUNCE
 		target_body = body
 
 
 func _on_player_detector_body_exited(body):
-	if "Player" in body.name:
+	if body.is_in_group("Player"):
 		current_state = State.IDLE
 		target_body = null
 

@@ -476,7 +476,7 @@ height = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvq6o"]
 radius = 75.0
 
-[node name="Slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_j22ma")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

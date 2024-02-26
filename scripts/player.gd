@@ -51,5 +51,5 @@ func attack_complete() -> void:
 
 
 func _on_sword_body_entered(body):
-	if body.name == "Slime":
+	if body.is_in_group("Enemies"):
 		body.health -= 1 # Replace with function body.
